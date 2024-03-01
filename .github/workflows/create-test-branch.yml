@@ -27,6 +27,7 @@ jobs:
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git config --global user.name "${{ env.AUTHOR_NAME }}"
           git add .
-          git commit -m "${{ github.event.head_commit.message }}"
           git push --force-with-lease origin HEAD:cds-test-integrate
+#git commit -m "${{ github.event.head_commit.message }}"
+          
 #git push origin cds-test-integrate
