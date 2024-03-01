@@ -1,4 +1,4 @@
-# Incident Management...
+# Incident Management
 
 Welcome to the Incident Management reference sample application for CAP and development recommendations provided by the SAP BTP Developer Guide.
 
