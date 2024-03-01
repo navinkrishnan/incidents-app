@@ -26,8 +26,16 @@ jobs:
         run: |
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git config --global user.name "${{ env.AUTHOR_NAME }}"
-          git add .
-          git commit -m "${{ github.event.head_commit.message }}"
+           git fetch origin test
+
+          # Check if there are changes to commit
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit."
+          else
+            # Add and commit changes locally
+            git add -A
+            git commit -m "${{ github.event.head_commit.message }}"
+          fi
           git push --force-with-lease origin HEAD:cds-test-integrate
-          
+# git add .          
 #git push origin cds-test-integrate
