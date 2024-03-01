@@ -21,21 +21,16 @@ jobs:
           echo "AUTHOR_EMAIL=$LAST_COMMIT_EMAIL" >> $GITHUB_ENV
           echo "AUTHOR_NAME=$LAST_COMMIT_NAME" >> $GITHUB_ENV
           
-
+      - name: Test
+        run: |
+          npm i
+          npm test
       - name: Push
         run: |
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git config --global user.name "${{ env.AUTHOR_NAME }}"
-           git fetch origin test
-
-          # Check if there are changes to commit
-          if git diff-index --quiet HEAD; then
-            echo "No changes to commit."
-          else
-            # Add and commit changes locally
-            git add -A
-            git commit -m "${{ github.event.head_commit.message }}"
-          fi
+          # Add and commit changes locally
+          git add .
+          git commit -m "${{ github.event.head_commit.message }}"
           git push --force-with-lease origin HEAD:cds-test-integrate
-# git add .          
-#git push origin cds-test-integrate
+
