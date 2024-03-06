@@ -1,19 +1,17 @@
 name: Create CDS Test branch
-permissions:
-  contents: read
-  pages: write
 on:
   workflow_call:
   
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     name: Build and Push
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          permissions: write-all
             
       - name: Copy xmpls
         run: npm run add-all-xmpls
