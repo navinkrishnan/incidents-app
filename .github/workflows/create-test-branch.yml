@@ -1,12 +1,6 @@
 name: Create CDS Test branch
 on:
-  # workflow_call:
-  #   secrets:
-  #     TECH_USER_TOKEN:
-  #       required: true
-  push:
-    branches: [test]
-  
+  workflow_call:
   
 jobs:
   build:
@@ -16,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Push
     steps:
-      - name: Print secs
-        run: |
-          echo ${{ secrets.TECH_USER_TOKEN }}
       - uses: actions/checkout@v4
         env:
           TECH_TOKEN: ${{ secrets.TECH_USER_TOKEN }}
@@ -47,6 +38,5 @@ jobs:
           # Add and commit changes locally
           git add .
           git commit -m "${{ github.event.head_commit.message }}"
-          echo ${{ secrets.TECH_USER_TOKEN }}
           git push --force-with-lease origin HEAD:cds-test-integrate
 
