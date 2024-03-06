@@ -10,6 +10,7 @@ on:
   
 jobs:
   build:
+    environment: test-branch-action
     # permissions:
     #   contents: write
     runs-on: ubuntu-latest
@@ -23,7 +24,7 @@ jobs:
           TECH_TOKEN: ${{ secrets.TECH_USER_TOKEN }}
         with:
           fetch-depth: 0
-          token: ${{ env.TECH_TOKEN }}
+          token: ${{ secrets.TECH_USER_TOKEN }}
             
       - name: Copy xmpls
         run: npm run add-all-xmpls
