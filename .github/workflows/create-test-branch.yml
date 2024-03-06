@@ -3,12 +3,11 @@ name: Create CDS Test branch
 on:
   workflow_call:
   
-permissions:
-  contents: write
-  
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     name: Build and Push
     steps:
       - uses: actions/checkout@v4
