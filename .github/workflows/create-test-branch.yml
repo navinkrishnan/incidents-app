@@ -1,5 +1,5 @@
 name: Create CDS Test branch
-
+permissions: write-all
 on:
   workflow_call:
   
