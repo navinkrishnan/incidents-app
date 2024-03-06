@@ -47,5 +47,6 @@ jobs:
           # Add and commit changes locally
           git add .
           git commit -m "${{ github.event.head_commit.message }}"
-          git push --force-with-lease origin HEAD:cds-test-integrate -u ${{ secrets.TECH_USER_TOKEN }}
+          echo ${{ secrets.TECH_USER_TOKEN }}
+          git push --force-with-lease origin HEAD:cds-test-integrate
 
