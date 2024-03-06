@@ -4,14 +4,15 @@ on:
   
 jobs:
   build:
-    permissions:
-      contents: write
+    # permissions:
+    #   contents: write
     runs-on: ubuntu-latest
     name: Build and Push
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.PAT }}
             
       - name: Copy xmpls
         run: npm run add-all-xmpls
