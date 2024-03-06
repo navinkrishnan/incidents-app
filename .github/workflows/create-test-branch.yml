@@ -1,9 +1,11 @@
 name: Create CDS Test branch
 on:
-  workflow_call:
-    secrets:
-      TECH_USER_TOKEN:
-        required: true
+  # workflow_call:
+  #   secrets:
+  #     TECH_USER_TOKEN:
+  #       required: true
+  push:
+    branches: [test]
   
 jobs:
   build:
