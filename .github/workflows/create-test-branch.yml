@@ -2,7 +2,10 @@ name: Create CDS Test branch
 
 on:
   workflow_call:
-
+  
+permissions:
+  contents: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
