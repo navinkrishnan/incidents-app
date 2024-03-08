@@ -4,14 +4,14 @@ on:
   
 jobs:
   build:
-    environment: test-branch-action
+    # environment: test-branch-action
     runs-on: ubuntu-latest
     name: Build and Push
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.TECH_USER_TOKEN }}
+          token: ${{ secrets.REPO_TECH_USER_TOKEN }}
             
       - name: Copy xmpls
         run: npm run add-all-xmpls
