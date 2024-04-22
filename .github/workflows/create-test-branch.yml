@@ -14,7 +14,9 @@ jobs:
           token: ${{ secrets.REPO_TECH_USER_TOKEN }}
             
       - name: Copy xmpls
-        run: npm run add-all-xmpls
+        run: | 
+          npm run add-all-xmpls
+          rm -rf xmpls
       - name: Extract last commit author email and name
         id: extract_commit_info
         run: |
